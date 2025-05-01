@@ -1,5 +1,6 @@
 import profile_pic from '../assets/monki.jpg';
 import MomentCard  from './MomentCard'
+import AlbumCard from './AlbumCard'
 
 function ProfilePage(){
     return(
@@ -13,7 +14,7 @@ function ProfilePage(){
                 <p className="profile-stat">Following: 132</p>
                 <p className="profile-stat">Followers: 5.3M</p>
             </div>
-            <button className="follow-button">Follow</button>
+            <button className="follow-button">Send friend request</button>
             <div className='content-filter'>
                 <button className="content-filter-button">Sort by albums</button>
                 <button className="content-filter-button">Sort by moments</button>
@@ -25,12 +26,17 @@ function ProfilePage(){
                     <MomentCard/>
                     <MomentCard/>
                     <MomentCard/>
+                    <MomentCard/>
+                    <MomentCard/>
                 </div>
             </div>
             <div className="profile-content-albums">
                 <p className="year-identifier">2024</p>
                 <div className="year-profile-albums">
-                    <div></div>
+                    <div>
+                        <AlbumCard/>
+                        <AlbumCard/>
+                    </div>
                 </div>
             </div>
         </div>
