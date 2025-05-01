@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import MomentCard  from './MomentCard'
+import MomentCard  from './components/MomentCard'
+import ProfilePage from './components/ProfilePage'
 
 function App() {
   return(
-    <MomentCard></MomentCard>
+    <ProfilePage/>
   );
- 
+
 }
 
 export default App
