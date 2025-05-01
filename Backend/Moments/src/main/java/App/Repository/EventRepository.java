@@ -58,7 +58,7 @@ public class EventRepository implements EventInterface {
 
     @Override
     public int deleteAll() {
-        return jdbcTemplate.update("DELETE * FROM EVENTS");
+        return jdbcTemplate.update("DELETE FROM EVENTS");
     }
 
 
