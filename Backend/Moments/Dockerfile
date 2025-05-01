@@ -1,7 +1,13 @@
-FROM maven:3.8.5-openjdk-17
+FROM openjdk:22-jdk-slim
 
 WORKDIR /app
-COPY . .
-RUN mvn clean install
 
-CMD mvn spring-boot:run
+RUN apt-get update && apt-get install -y maven
+
+COPY src ./src
+
+COPY pom.xml .
+
+EXPOSE 8080
+
+ENTRYPOINT ["mvn", "spring-boot:run"]
