@@ -29,12 +29,12 @@ public class EventController
         return eventRepository.findAll();
     }
 
-    @GetMapping("/get/{id]")
+    @GetMapping("/get/{id}")
     public Event getEventById(@PathVariable int id){
         return eventRepository.findById(id);
     }
 
-    @GetMapping("/user/{id]")
+    @GetMapping("/user/{id}")
     public List<Event> getUserEvents(@PathVariable int id){
         List<Event> list = new ArrayList<>();
         List<UserEvent> userEvents;
