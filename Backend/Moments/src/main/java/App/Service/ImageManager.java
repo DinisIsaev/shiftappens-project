@@ -15,11 +15,13 @@ public class ImageManager {
     private Path imageDir = Path.of("/media");
 
     //To view an image
-    public byte[] presentImage(Path imageDir, String imageName) {
+    public byte[] presentImage(String imageName) {
+        Path imagePath = Path.of(imageDir.toString(), imageName);
+
 
         try {
-            if (Files.exists(imageDir)) {
-                byte[] bytes = Files.readAllBytes(imageDir);
+            if (Files.exists(imagePath)) {
+                byte[] bytes = Files.readAllBytes(imagePath);
                 return bytes;
             }
             else{
