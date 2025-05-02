@@ -8,6 +8,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.security.crypto.bcrypt.*;
 
 import java.util.List;
 
@@ -58,6 +59,19 @@ public class UserRepository implements UserInterface {
     public int deleteAll() {
         return jdbcTemplate.update("DELETE FROM users");
     }
-
+    
+    @Override
+    public User login(String user, String pass) {
+        try {
+            User user1 = jdbcTemplate.queryForObject("SELECT * FROM users WHERE name = ?", 
+                    BeanPropertyRowMapper.newInstance(User.class), user);
+            if (user1 != null && BCrypt.checkpw(pass, user1.getPassword())) {
+                return user1;
+            }
+            return null;
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
 
 }
