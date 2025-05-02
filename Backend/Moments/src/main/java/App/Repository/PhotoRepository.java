@@ -24,8 +24,9 @@ public class PhotoRepository implements PhotoInterface {
 
     @Override
     public int save(Photo photo) {
-        return jdbcTemplate.update("INSERT INTO photos (path,likes,events_id,users_id) VALUES(?,?,?,?)",
-                new Object[] { photo.getPath(), photo.getLikes(), photo.getEvents_id(), photo.getUsers_id()});
+        return jdbcTemplate.update("INSERT INTO photos (path,events_id,users_id) VALUES(?,?,?)",
+                new Object[] { photo.getPath(), photo.getEvents_id(), photo.getUsers_id()});
+
     }
 
     @Override
