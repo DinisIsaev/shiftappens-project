@@ -24,39 +24,42 @@ public class UserEventRepository implements UserEventInterface {
     }
 
     @Override
-    public int save(UserEvent user_events ) {
-        return jdbcTemplate.update("INSERT INTO user_events(users_id,events_id) VALUES(?,?)",
-                new Object[] {user_events.getUsers_id(),user_events.getEvents_id() });
+    public int save(UserEvent users_events ) {
+        return jdbcTemplate.update("INSERT INTO users_events(users_id,events_id) VALUES(?,?)",
+                new Object[] {users_events.getUsers_id(),users_events.getEvents_id() });
     }
 
     @Override
-    public int update(UserEvent user_events ) {
-        return jdbcTemplate.update("UPDATE user_events SET users_id=?, events_id=? WHERE id=?",
-                new Object[] { user_events.getUsers_id(), user_events.getEvents_id(), user_events.getUsers_events_id() });
+    public int update(UserEvent users_events ) {
+        return jdbcTemplate.update("UPDATE users_events SET users_id=?, events_id=? WHERE id=?",
+                new Object[] { users_events.getUsers_id(), users_events.getEvents_id(), users_events.getUsers_events_id() });
     }
 
     @Override
-    public UserEvent findById(int id) {
-        try {
-            UserEvent user_events  = jdbcTemplate.queryForObject("SELECT * FROM user_events  WHERE id=?",
-                    BeanPropertyRowMapper.newInstance(UserEvent.class), id);
-            return user_events ;
-        } catch (EmptyResultDataAccessException e) {
+    public List<UserEvent> findByEvent(int id) {
+        List<UserEvent> users_events;
+
+        try{
+            users_events = jdbcTemplate.query("SELECT * FROM users_events WHERE events_id =?",
+                    BeanPropertyRowMapper.newInstance(UserEvent.class),id);
+
+        }catch (EmptyResultDataAccessException e){
             return null;
         }
+        return users_events;
     }
     @Override
     public List<UserEvent> findByUser(int user){
-        List<UserEvent> user_events;
+        List<UserEvent> users_events;
 
         try{
-            user_events = jdbcTemplate.query("SELECT * FROM user_events WHERE id=?",
+            users_events = jdbcTemplate.query("SELECT * FROM users_events WHERE users_id=?",
                     BeanPropertyRowMapper.newInstance(UserEvent.class),user);
 
         }catch (EmptyResultDataAccessException e){
             return null;
         }
-        return user_events;
+        return users_events;
 
 
     }
@@ -64,17 +67,17 @@ public class UserEventRepository implements UserEventInterface {
 
     @Override
     public int deleteById(int id) {
-        return jdbcTemplate.update("DELETE FROM user_events s_events  WHERE id=?", id);
+        return jdbcTemplate.update("DELETE FROM users_events s_events  WHERE id=?", id);
     }
 
     @Override
     public List<UserEvent> findAll() {
-        return jdbcTemplate.query("SELECT * FROM user_events s_events ", BeanPropertyRowMapper.newInstance(UserEvent.class));
+        return jdbcTemplate.query("SELECT * FROM users_events s_events ", BeanPropertyRowMapper.newInstance(UserEvent.class));
     }
 
     @Override
     public int deleteAll() {
-        return jdbcTemplate.update("DELETE FROM user_events s_events ");
+        return jdbcTemplate.update("DELETE FROM users_events s_events ");
     }
 
 
