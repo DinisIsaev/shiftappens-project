@@ -3,15 +3,15 @@ package App.Entity;
 import org.springframework.web.multipart.MultipartFile;
 
 public class PhotoWrapper {
-    private MultipartFile file;
+    private MultipartFile[] file;
     private String token;
     private String eventID;
 
-    public MultipartFile getFile() {
+    public MultipartFile[] getFile() {
         return file;
     }
 
-    public void setFile(MultipartFile file) {
+    public void setFile(MultipartFile[] file) {
         this.file = file;
     }
 
@@ -31,7 +31,7 @@ public class PhotoWrapper {
         this.eventID = eventID;
     }
 
-    public PhotoWrapper(MultipartFile file, String token, String eventID) {
+    public PhotoWrapper(MultipartFile[] file, String token, String eventID) {
         this.file = file;
         this.token = token;
         this.eventID = eventID;

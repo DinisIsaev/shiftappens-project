@@ -1,12 +1,10 @@
 package App.Controller;
-
 import App.Entity.Photo;
+import App.Entity.PhotoWrapper;
 import App.Repository.PhotoRepository;
-import App.Entity.Photo;
-import App.Entity.UserEvent;
-import App.Repository.PhotoRepository;
-import App.Repository.UserEventRepository;
 import App.Service.ImageManager;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 @RestController
@@ -26,18 +25,30 @@ public class PhotoController {
     @Autowired
     private PhotoRepository photoRepository;
     @PostMapping("auth/createAd")
-    public int createAd(
-            @RequestBody MultipartFile[] adsImages
-    ) {
+    public int createAd(@RequestBody PhotoWrapper photoWrapper) {
         try {
             String uploadDirectory = "/media/";
             String adsImagesString = "";
 
-            for (MultipartFile imageFile : adsImages) {
+            String token = photoWrapper.getToken();
+
+
+
+            String[] chunks = token.split("\\.");
+
+
+            Base64.Decoder decoder = Base64.getUrlDecoder();
+            Claims payload = new Claims(decoder.decode(chunks[1]));
+
+            System.out.println(payload);
+
+            String user_id = payload.get("user_id",int.class);
+            for (MultipartFile imageFile : photoWrapper.getFile()) {
                 adsImagesString = uploadDirectory + imageManager.saveImageToStorage(imageFile);
 
-                photoRepository.save(new Photo(adsImagesString,0, ));
+                photoRepository.save(new Photo(adsImagesString,0,photoWrapper.getEventID(),));
             }
+
             return 1;
         }catch (Exception e) {
             return 0;
