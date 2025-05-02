@@ -15,8 +15,8 @@ import java.util.List;
 
 @RestController
 @EnableAutoConfiguration
-@RequestMapping("/event")
-public class EventController
+@RequestMapping("/user")
+public class UserController
 {
 
     @Autowired
