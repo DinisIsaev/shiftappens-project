@@ -16,6 +16,6 @@ public interface UserInterface {
     List<User> findAll();
 
     int deleteAll();
-    User login(String user, String pass);
+    String login(String user, String pass);
 }
 

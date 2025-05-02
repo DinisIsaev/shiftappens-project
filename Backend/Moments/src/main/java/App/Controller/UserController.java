@@ -57,7 +57,7 @@ public class UserController
     }
 
     @PostMapping("/login")
-    public User loginUser(@RequestBody LoginWrapper loginWrapper){
+    public String loginUser(@RequestBody LoginWrapper loginWrapper){
     return userRepository.login(loginWrapper.getUsername(), loginWrapper.getPassword());
     }
 }
