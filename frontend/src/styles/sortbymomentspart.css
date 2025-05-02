@@ -1,0 +1,20 @@
+.sort-by-moments-part{
+    position: relative;
+}
+
+.year-identifier{
+    position: absolute;
+    top: -35px;
+    left: 25px;
+    font-size: 20px;
+    border: 1px solid #000;
+    background-color: white;
+    padding: 5px 10px;
+}
+
+.moments-year-part{
+    border: 1px solid #000;
+    background-color: white;
+    height: 40vh;
+    margin-bottom: 25px;
+}
