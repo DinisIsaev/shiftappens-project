@@ -1,4 +1,5 @@
 .profile-page{
+    padding-top: ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,6 +108,27 @@
 }
 
 .year-profile-moments{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: fit-content;
+    padding-top: 50px;
+}
+
+.profile-content-albums{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.year-profile-albums{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

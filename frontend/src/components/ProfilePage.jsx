@@ -30,6 +30,16 @@ function ProfilePage(){
                     <MomentCard/>
                 </div>
             </div>
+            <div className="profile-content-moments">
+                <p className="year-identifier">2024</p> 
+                <div className="year-profile-moments">
+                    <MomentCard/>
+                    <MomentCard/>
+                    <MomentCard/>
+                    <MomentCard/>
+                    <MomentCard/>
+                </div>
+            </div>
             <div className="profile-content-albums">
                 <p className="year-identifier">2024</p>
                 <div className="year-profile-albums">
