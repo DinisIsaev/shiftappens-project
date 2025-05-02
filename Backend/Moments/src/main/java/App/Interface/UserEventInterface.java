@@ -13,6 +13,8 @@ public interface UserEventInterface {
 
     int deleteById(int id);
 
+    List<UserEvent> findByUser(int user);
+
     List<UserEvent> findAll();
 
     int deleteAll();

@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -44,6 +45,22 @@ public class UserEventRepository implements UserEventInterface {
             return null;
         }
     }
+    @Override
+    public List<UserEvent> findByUser(int user){
+        List<UserEvent> user_events;
+
+        try{
+            user_events = jdbcTemplate.query("SELECT * FROM user_events WHERE id=?",
+                    BeanPropertyRowMapper.newInstance(UserEvent.class),user);
+
+        }catch (EmptyResultDataAccessException e){
+            return null;
+        }
+        return user_events;
+
+
+    }
+
 
     @Override
     public int deleteById(int id) {
