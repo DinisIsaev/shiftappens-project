@@ -1,5 +1,3 @@
-import AlbumCard from "./AlbumCard";
-
 function SortByAlbumsPart(){
     return (
         <div className="sort-by-albums-part">
