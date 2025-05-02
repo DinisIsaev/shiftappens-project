@@ -7,6 +7,8 @@ import java.util.List;
 public interface PhotoInterface {
     int save(Photo photo);
 
+    List<Photo> findByUser(int user);
+
     int update(Photo photo);
 
     Photo findById(int id);

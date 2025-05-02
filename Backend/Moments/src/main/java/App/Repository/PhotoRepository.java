@@ -47,6 +47,17 @@ public class PhotoRepository implements PhotoInterface {
     }
 
     @Override
+    public List<Photo> findByUser(int user) {
+        try {
+            List<Photo> photos= jdbcTemplate.query("SELECT * FROM photos WHERE users_id=?",
+                    BeanPropertyRowMapper.newInstance(Photo.class), user);
+            return photos;
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
     public int deleteById(int id) {
         return jdbcTemplate.update("DELETE FROM photos WHERE id=?", id);
     }
