@@ -23,8 +23,8 @@ public class UserRepository implements UserInterface {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Value("${SECRET_KEY}")
-    private String SECRET_KEY;
+   @Value("${SECRET_KEY}")
+   private String SECRET_KEY;
 
     public UserRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
