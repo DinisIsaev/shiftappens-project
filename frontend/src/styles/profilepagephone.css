@@ -1,0 +1,126 @@
+.profile-logo{
+    display: block;
+    margin: auto;
+    margin-bottom: 40px;
+    width: 90px;
+}
+
+.profile-page{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(348.52deg, #0033FF -0.63%, #977DFF 36.89%, #FBCCFF 74.86%, #FFCCF2 90.85%);
+}
+
+.profile-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-pic{
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    }
+
+.profile-infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 20px;
+}
+
+.profile-username{
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.profile-bio{
+    font-size: 15px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+.profile-stat-part{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.profile-stat{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.profile-smalltext{
+    font-weight: normal;
+    margin: 0;
+}
+
+.follow-button{
+    display: block;
+    width: fit-content;
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2.5px solid black;
+    font-weight: bold;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.follow-button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.profile-text{
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.content-filter-buttons{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin: 15px 0px;
+}
+
+.content-filter-button{
+    background-color: #977DFF61;
+    color: white;
+    padding: 10px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    box-shadow: 0px 0px 5px #0033FF9E;
+    font-weight: bold;
+    margin: 0;
+    width: 48%;
+}
+
+.profile-content{
+    background: linear-gradient(348.52deg, #0033FF -0.63%, #977DFF 36.89%, #FBCCFF 74.86%, #FFCCF2 90.85%);
+    border: 1px solid #000000;
+    height: 100vh;
+    padding: 20px;
+    padding-top: 40px;
+}
