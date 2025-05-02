@@ -25,12 +25,12 @@ public class UserController
     private UserEventRepository userEventRepository;
 
     @GetMapping("/getall")
-    public List<Event> getUsers(){
+    public List<User> getUsers(){
         return userRepository.findAll();
     }
 
     @GetMapping("/get/{id}")
-    public Event getUserById(@PathVariable int id){
+    public User getUserById(@PathVariable int id){
         return userRepository.findById(id);
     }
 
@@ -42,6 +42,6 @@ public class UserController
 
     @PostMapping("/update")
     public int updateUser(@RequestBody User user){
-        return userRepository.update(user)
+        return userRepository.update(user);
     }
 }
