@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class PhotoWrapper {
     private MultipartFile[] file;
     private String token;
-    private String eventID;
+    private int eventID;
 
     public MultipartFile[] getFile() {
         return file;
@@ -23,15 +23,15 @@ public class PhotoWrapper {
         this.token = token;
     }
 
-    public String getEventID() {
+    public int getEventID() {
         return eventID;
     }
 
-    public void setEventID(String eventID) {
+    public void setEventID(int eventID) {
         this.eventID = eventID;
     }
 
-    public PhotoWrapper(MultipartFile[] file, String token, String eventID) {
+    public PhotoWrapper(MultipartFile[] file, String token, int eventID) {
         this.file = file;
         this.token = token;
         this.eventID = eventID;
