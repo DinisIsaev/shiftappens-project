@@ -1,15 +1,12 @@
 package App.Entity;
 
 public class Photo {
-
-    int id;
     String path;
     int likes;
     int events_id;
     int users_id;
 
-    public Photo(int id, String path, int likes, int events_id, int users_id) {
-        this.id = id;
+    public Photo( String path, int likes, int events_id, int users_id) {
         this.path = path;
         this.likes = likes;
         this.events_id = events_id;
@@ -47,15 +44,8 @@ public class Photo {
         return events_id;
     }
 
-    public void setEvents_id(int events_id) {
-        this.events_id = events_id;
-    }
-
     public int getUsers_id() {
         return users_id;
     }
 
-    public void setUsers_id(int users_id) {
-        this.users_id = users_id;
-    }
 }
