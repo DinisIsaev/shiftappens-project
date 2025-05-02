@@ -30,12 +30,12 @@ public class EventController
     }
 
     @GetMapping("/get/{id}")
-    public Event getEventById(@PathVariable int id){
+    public Event getEventById(@PathVariable("id") int id){
         return eventRepository.findById(id);
     }
 
     @GetMapping("/user/{id}")
-    public List<Event> getUserEvents(@PathVariable int id){
+    public List<Event> getUserEvents(@PathVariable("id") int id){
         List<Event> list = new ArrayList<>();
         List<UserEvent> userEvents;
 

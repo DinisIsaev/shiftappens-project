@@ -9,7 +9,7 @@ public interface UserEventInterface {
 
     int update(UserEvent user);
 
-    UserEvent findById(int id);
+    List<UserEvent> findByEvent(int id);
 
     int deleteById(int id);
 
