@@ -1,6 +1,7 @@
 package App.Controller;
 
 import App.Entity.Event;
+import App.Entity.LoginWrapper;
 import App.Entity.User;
 import App.Entity.UserEvent;
 import App.Repository.UserRepository;
@@ -39,7 +40,10 @@ public class UserController
     public int addUser(@RequestBody User user){
         // Encrypt the password before saving the user
         String encryptedPassword = encryptPassword(user.getPassword());
+        System.out.println(user.getPassword());
         user.setPassword(encryptedPassword);
+        System.out.println(user.getPassword());
+
         return userRepository.save(user);
     }
 
@@ -53,7 +57,7 @@ public class UserController
     }
 
     @PostMapping("/login")
-    public User loginUser(@RequestBody String user, @RequestParam String password){
-    return userRepository.login(user, password);
+    public User loginUser(@RequestBody LoginWrapper loginWrapper){
+    return userRepository.login(loginWrapper.getUsername(), loginWrapper.getPassword());
     }
 }

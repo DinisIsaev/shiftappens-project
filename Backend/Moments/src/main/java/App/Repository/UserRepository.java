@@ -63,11 +63,11 @@ public class UserRepository implements UserInterface {
     @Override
     public User login(String user, String pass) {
         try {
-            User user1 = jdbcTemplate.queryForObject("SELECT * FROM users WHERE name = ?", 
-                    BeanPropertyRowMapper.newInstance(User.class), user);
+            User user1 = jdbcTemplate.queryForObject("SELECT * FROM users WHERE name=?", BeanPropertyRowMapper.newInstance(User.class), user);
             if (user1 != null && BCrypt.checkpw(pass, user1.getPassword())) {
                 return user1;
             }
+
             return null;
         } catch (EmptyResultDataAccessException e) {
             return null;

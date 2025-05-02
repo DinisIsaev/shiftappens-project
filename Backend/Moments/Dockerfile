@@ -10,6 +10,6 @@ COPY pom.xml .
 
 EXPOSE 8080
 
-RUN mvn clean install -DskipTests
+
 
 ENTRYPOINT ["mvn", "spring-boot:run"]
