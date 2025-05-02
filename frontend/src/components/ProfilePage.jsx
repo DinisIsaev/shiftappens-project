@@ -1,6 +1,7 @@
 import profile_pic from '../assets/monki.jpg';
 import MomentCard  from './MomentCard'
 import AlbumCard from './AlbumCard'
+import Button from '@mui/material/Button';
 
 function ProfilePage(){
     return(
